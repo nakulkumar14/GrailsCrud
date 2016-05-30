@@ -51,7 +51,7 @@
 
                 <td>${fieldValue(bean: studentInstance, field: "lastname")}</td>
 
-                <td><g:formatDate date="${studentInstance.dob}"/></td>
+                <td><g:formatDate format="dd-MM-yyyy" date="${studentInstance.dob}"/></td>
 
             </tr>
         </g:each>

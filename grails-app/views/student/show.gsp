@@ -64,8 +64,9 @@
             <li class="fieldcontain">
                 <span id="dob-label" class="property-label"><g:message code="student.dob.label" default="Dob"/></span>
 
-                <span class="property-value" aria-labelledby="dob-label"><g:formatDate
-                        date="${studentInstance?.dob}"/></span>
+                <span class="property-value" aria-labelledby="dob-label"><g:formatDate format="dd-MM-yyyy"
+                                                                                       date="${studentInstance?.dob}"/>
+                </span>
 
             </li>
         </g:if>

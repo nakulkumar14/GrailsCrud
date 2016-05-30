@@ -1,0 +1,3 @@
+2016-05-30/16:46:49.694 [http-bio-4000-exec-1]  INFO  grailscrud.StudentController - list method
+2016-05-30/16:48:30.404 [http-bio-4000-exec-7]  INFO  grailscrud.StudentController - list method
+2016-05-30/16:48:31.241 [http-bio-4000-exec-9]  INFO  grailscrud.StudentController - list method

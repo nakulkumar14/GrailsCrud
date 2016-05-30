@@ -1,3 +1,6 @@
+import org.apache.log4j.DailyRollingFileAppender
+import org.apache.log4j.PatternLayout
+
 // locations to search for config files that get merged into the main config;
 // config files can be ConfigSlurper scripts, Java properties files, or classes
 // in the classpath in ConfigSlurper format
@@ -76,6 +79,28 @@ log4j = {
     //appenders {
     //    console name:'stdout', layout:pattern(conversionPattern: '%c{2} %m%n')
     //}
+    def logLayoutPattern = new PatternLayout("%d{yyyy-MM-dd/HH:mm:ss.SSS} [%t] %x %-5p %c{2} - %m%n")
+
+    appenders {
+        appender new DailyRollingFileAppender(
+                name: "file",
+                file: "logs/myapp.log",
+                layout: logLayoutPattern,
+                datePattern: "'.'yyyy-MM-dd")
+
+        rollingFile name: "stacktrace",
+                file: "logs/stacktrace.log",
+                maxFileSize: '100KB'
+
+        console name: "stdout",
+                layout: logLayoutPattern
+    }
+
+    info "grailscrud"
+
+    root {
+        error "file", "stdout"
+    }
 
     error 'org.codehaus.groovy.grails.web.servlet',        // controllers
             'org.codehaus.groovy.grails.web.pages',          // GSP

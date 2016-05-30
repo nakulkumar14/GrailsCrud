@@ -1,16 +1,21 @@
 package grailscrud
 
+import org.apache.log4j.Logger
 import org.springframework.dao.DataIntegrityViolationException
 
 class StudentController {
 
+    private static final Logger LOG = Logger.getLogger(StudentController.class);
+
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
     def index() {
+        LOG.info("Student initialized..");
         redirect(action: "list", params: params)
     }
 
     def list(Integer max) {
+        LOG.info("list method");
         params.max = Math.min(max ?: 10, 100)
         [studentInstanceList: Student.list(params), studentInstanceTotal: Student.count()]
     }
